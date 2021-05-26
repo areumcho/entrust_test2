@@ -33,4 +33,4 @@ jobs:
           ENTRUST_API_PASSWORD: ${{ secrets.ENTRUST_API_PASSEWORD }}
 
           # Uncomment the setting below to renew early, 6 months in this example.
-          # DURATION_BEFORE_EXPIRY: 4380h
+          DURATION_BEFORE_EXPIRY: 4380h
