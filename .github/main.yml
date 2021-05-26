@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: digitorus/dvrenewal@main
+      - uses: areumcho/entrust_test2@main
         with:
           DNS_PROVIDER: godaddy
           GODADDY_API_SECRET: ${{ secrets.GODADDY_API_SECRET }}
