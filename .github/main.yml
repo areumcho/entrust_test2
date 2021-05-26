@@ -27,10 +27,14 @@ jobs:
           DNS_PROVIDER: godaddy
           GODADDY_API_SECRET: ${{ secrets.GODADDY_API_SECRET }}
           GODADDY_API_KEY: ${{ secrets.GODADDY_API_KEY }}
+          
           ENTRUST_API_CERTIFICATE: ${{ secrets.ENTRUST_API_CERTIFICATE }}
           ENTRUST_API_PRIVATE_KEY: ${{ secrets.ENTRUST_API_PRIVATE_KEY }}
+          #certificate private key
+          
           ENTRUST_API_USERNAME: ${{ secrets.ENTRUST_API_USERNAME }}
           ENTRUST_API_PASSWORD: ${{ secrets.ENTRUST_API_PASSEWORD }}
+          # Entrust API key
 
           # Uncomment the setting below to renew early, 6 months in this example.
           DURATION_BEFORE_EXPIRY: 4380h
