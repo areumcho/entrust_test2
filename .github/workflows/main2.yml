@@ -1,0 +1,40 @@
+name: Domain Control Validation Renewal
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+  # Run automatically, to check if domains should be renewed
+  schedule:
+    #         ┌───────────── minute (0 - 59)
+    #         │ ┌───────────── hour (0 - 23)
+    #         │ │  ┌───────────── day of the month (1 - 31)
+    #         │ │  │  ┌───────────── month (1 - 12)
+    #         │ │  │  │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday)
+    #         │ │  │  │ │
+    #         │ │  │  │ │
+    #         │ │  │  │ │
+    - cron: "22 8 */7 * *"
+
+jobs:
+  renew:
+    name: Renew
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: areumcho/entrust_test2@main
+        with:
+          DNS_PROVIDER: godaddy
+          GODADDY_API_SECRET: ${{ secrets.GODADDY_API_SECRET }}
+          GODADDY_API_KEY: ${{ secrets.GODADDY_API_KEY }}
+          
+          ENTRUST_API_CERTIFICATE: ${{ secrets.ENTRUST_API_CERTIFICATE }}
+          ENTRUST_API_PRIVATE_KEY: ${{ secrets.ENTRUST_API_PRIVATE_KEY }}
+          #certificate private key
+          
+          ENTRUST_API_USERNAME: ${{ secrets.ENTRUST_API_USERNAME }}
+          ENTRUST_API_PASSWORD: ${{ secrets.ENTRUST_API_PASSEWORD }}
+          # Entrust API key
+
+          # Uncomment the setting below to renew early, 6 months in this example.
+          DURATION_BEFORE_EXPIRY: 4380h
